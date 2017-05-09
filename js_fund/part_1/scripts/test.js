@@ -29,18 +29,16 @@ console.log(sum);
 
 var arr = [1, 5, 90, 25, -3, 0];
 var min = arr[0];
-for(var i = 0; i < arr.length; i++){
+for(var i = 0; i < arr.length-1; i++){
 	if(arr[i] < min){
 		min = arr[i];
 	}
-}
-console.log(min);
+} return min;
 
 // Write a loop that will go through the array [1, 5, 90, 25, -3, 0], find the average of all of the values, and then print it
 
-var arr = [1, 5, 90, 25, -3, 0];
+x = [1, 5, 90, 25, -3, 0];
 var sum = 0;
 for(var i = 0; i < arr.length; i++){
 	sum += arr[i];
-}
-console.log(sum/arr.length)
+} console.log(sum/arr.length)
