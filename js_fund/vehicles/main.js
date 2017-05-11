@@ -1,34 +1,44 @@
-function VehicleConstructor(name, wheels, passengers){
-	var vehicle = {}; //vehicle object
+function VehicleConstructor(name, wheels, passengers, speed){
 	var self = this
 	// vehicle properties
-	vehicle.name = name;
-	vehicle.wheels = wheels;
-	vehicle.passengers = passengers;
-	//make noise method
-	vehicle.makeNoise = function(){
-		console.log('BEEP BEEP MUTHA TRUCKAS' + vehicle.name + 'INCOMING')
+	this.name = name;
+	this.wheels = wheels;
+	this.passengers = passengers;
+	this.speed = speed;
+	//private vars
+	var distance_travelled = 0;
+	//private methods
+	var update = function updateDistanceTravelled(){
+		distance_travelled += self.speed
 	}
-	// vehicle.addpassengers = function(added){
-	// 	passengers += added;
-	// 	console.log(passengers);
-	// }
-	//return vehicle
-	return vehicle;
+	//public methods
+	this.makeNoise = function(){
+		console.log('BEEP BEEP MUTHA TRUCKAS ' + self.name + ' INCOMING')
+	}
+	this.move = function(){
+		updateDistanceTravelled();
+		self.makeNoise();
+	}
+	this.checkMiles = function(){
+		console.log(distance_travelled)
+	}
+	return this;
 }
 //creating a bike
 var Bike = VehicleConstructor('Bike', 2, 1)
-Bike.makeNoise = function(){
+this.makeNoise = function(){
 	console.log('RING RING MUTHA TRUCKAS ' + Bike.name + ' INCOMING')
 }
+Bike.makeNoise()
 //creating Sedan
 var Sedan = VehicleConstructor('Sedan', 4, 4)
-Sedan.makeNoise = function(){
+this.makeNoise = function(){
 	console.log('HONK HONK MUTHA TRUCKAS ' + Sedan.name + ' INCOMING')
 }
 //creating bus
 var Bus = VehicleConstructor('Bus', 4, 50)
-Bus.addpassengers = function(added){
+this.addpassengers = function(added){
 	this.passengers += added  
 	console.log(this.passengers)
 }
+
