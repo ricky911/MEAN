@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Results</title>
+	</head>
+	<body>
+		<h1>Submitted Information</h1>
+		<% for(var i = 0; i < users.length; i++){ %>
+			<p>Name: <%= users[i].name %></p>
+			<p>Dojo Location: <%= users[i].location %></p>
+			<p>Favorite Language: <%= users[i].language %></p>
+			<p>Comment: <%= users[i].comment %></p>
+		<%}%>
+	</body>
+</html>
