@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>All Aliens</title>
+	</head>
+	<body>
+		<h1>All Aliens!</h1>
+		<% for(var x in aliens) {%>
+			<h3><a href='/alien/<%= aliens[x].id %>'><%= aliens[x].name %></a></h3>
+		<% } %>
+		<form action='/alien/new' method='get'>
+			<p><input type="submit" value="Create a new Alien!" /></p>
+		</form>
+	</body>
+</html>

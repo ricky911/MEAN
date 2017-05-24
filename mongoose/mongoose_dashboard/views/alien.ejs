@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Alien</title>
+	</head>
+	<body>
+		<h1>Name: <%= alien.name %></h1>
+		<h1>Arms: <%= alien.arms %></h1>
+		<h1>Eyes: <%= alien.eyes %></h1>
+		<h1>Legs: <%= alien.legs %></h1>
+		<h1>Antennas: <%= alien.antennas %></h1>
+		<form action='/alien/edit/<%= alien.id %>' method='get'>
+			<input type="submit" value="Edit Alien">
+		</form>
+		<form action='/alien/delete/<%= alien.id%>' method='post'>
+			<p><input type="submit" value="Delete" /></p>
+		</form>
+		<form action='/' method='get'>
+			<p><input type="submit" value="Home" /></p>
+		</form>
+	</body>
+</html>

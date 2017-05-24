@@ -49,6 +49,7 @@ app.post('/addQuote', function(req, res){
 	quote.save(function(err, quote){
 		if(err){
 			res.send(err);
+			console.log(err);
 		} else {
 			res.redirect('/quotes');
 		}

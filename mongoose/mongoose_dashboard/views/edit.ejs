@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Edit</title>
+	</head>
+	<body>
+		<h1>Edit your Alien!</h1>
+		<form action='/alien/<%= alien.id %>' method='post'>
+			Name: <input type="text" name="name" />
+			<p>Number of Eyes (between 0-8): <input type="number" name="eyes" min='0' max='8' /></p>
+			<p>Number of Arms (between 0-8): <input type="number" name="arms" min='0' max='8' /></p>
+			<p>Number of Legs (between 0-8): <input type="number" name="legs" min='0' max='8' /></p>
+			<p>Number of Antennas (between 0-8): <input type="number" name="antennas" min='0' max='8' /></p>
+			<p><input type="submit" value="Update!" /></p>
+		</form>
+		<form action='/' method='get'>
+			<p><input type="submit" value="Home" /></p>
+		</form>
+	</body>
+</html>
