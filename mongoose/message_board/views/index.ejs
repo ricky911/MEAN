@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Message Board</title>
+	</head>
+	<body>
+		<h1>Message Board</h1>
+		<form action='/posts' method='post'>
+			<p>Name: <input type="text" name="name"></p>
+			<p>Message: <textarea name="text"></textarea></p>
+			<p><input type="submit" value="Submit" />
+		</form>
+		<% for(var i = 0; i < posts.length; i++){ %>
+			<h3>Name: <%= posts[i].name %></h3>
+			<p>Post: <%= posts[i].text %></p>
+			<h2>Comments</h2>
+			<% for(var j=0; j < posts[i].comments.length; j++) { %>
+				<% var comment = posts[i].comments[j] %>
+				<p>Name: <%= comment.name %></p>
+				<p>Comment: <%= comment.text %></p>
+			<% } %>
+			<h4>Leave Comment</h4>
+			<form action='/comments/<%= posts[i]._id %>' method="post">
+				<p>Name: <input type="text" name="name" /></p>
+				<p>Message: <textarea name="text"></textarea></p>
+				<p><input type="submit" value="Submit" />
+			</form>
+		<% } %>
+	</body>
+</html>
