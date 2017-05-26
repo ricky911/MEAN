@@ -1,0 +1,17 @@
+{
+  "name": "modularized_alien",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Ricky Aguayo <raguayo911@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ricky911/MEAN",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
