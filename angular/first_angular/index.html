@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+	<head>
+		<title>First</title>
+		<script src="bower_components/angular/angular.js"></script>
+		<script type="text/javascript">
+			var app = angular.module('app', []);
+			app.controller('divController', ['$scope', function($scope){
+				$scope.name = 'Ricky';
+				$scope.favLang = 'JS';
+				$scope.favLib = 'Angular';
+			}]);
+		</script>
+	</head>
+	<body>
+	<div ng-controller='divController'>
+		<h1>Hello, my name is {{name}}. My favorite language is {{favLang}} and my favorite library is {{favLib}}!
+	</div>
+	</body>
+</html>

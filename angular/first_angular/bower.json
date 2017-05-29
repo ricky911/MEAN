@@ -1,0 +1,20 @@
+{
+  "name": "first_angular",
+  "homepage": "https://github.com/ricky911/MEAN",
+  "authors": [
+    "Ricky Aguayo <raguayo911@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.4"
+  }
+}
