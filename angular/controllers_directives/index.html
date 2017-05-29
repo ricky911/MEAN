@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+	<head>
+		<title>Directives and Controllers</title>
+		<script src='bower_components/angular/angular.js'></script>
+		<script type="text/javascript">
+			var app = angular.module('app', []);
+			app.controller('example', ['$scope', function($scope){
+				$scope.people = [
+					{name: 'Ricky'},
+					{name: 'Ranae'},
+					{name: 'Monica'},
+					{name: 'Bibi'},
+				];
+				$scope.addPeople = function(){
+					$scope.people.push($scope.newPeople);
+					$scope.newPeople = {};
+				}
+			}])
+		</script>
+	</head>
+	<body>
+		<div ng-controller='example'>
+			Name: <input type="text" ng-model="name" />
+			<p>Hello <span ng-bind='name'></span></p>
+			Search: <input type="text" ng-model="search" />
+			<h3 ng-repeat='person in people | filter: search'>{{person.name}}</h3>
+			<form ng-submit='addPeople()'>
+				Add a new Person: <input type="text" ng-model='newPeople.name'>
+				<input type="submit" value="Add">
+			</form>
+			Toggle text: <input type="checkbox" ng-model="toggle" ng-init="toggle=true" />
+			<div ng-show='toggle'>
+				<h3>Check/uncheck to toggle text</h3>
+			</div>
+			<button ng-click="count = count+1" ng-init="count = 0">Click to add to count</button>
+			<span>Count: {{count}}</span>
+		</div>
+	</body>
+</html>
