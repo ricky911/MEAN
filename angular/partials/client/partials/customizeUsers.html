@@ -1,0 +1,21 @@
+<h1>Customize Users</h1>
+<form ng-submit="CUC.addUsers(CUC.newUser)">
+	<p>First Name: <input type="text" ng-model="CUC.newUser.first"></p>
+	<p>Last Name: <input type="text" ng-model="CUC.newUser.last"></p>
+	<p>Favorite Language: <input type="text" ng-model="CUC.newUser.favLang"></p>
+	<p><input type="submit" value="Submit"></p>
+</form>
+<table ng-init="CUC.getUsers()">
+	<tr>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Favorite Language</th>
+		<th>Action</th>
+	</tr>
+	<tr ng-repeat="user in CUC.users">
+		<td>{{user.first}}</td>
+		<td>{{user.last}}</td>
+		<td>{{user.favLang}}</td>
+		<td><button ng-click="CUC.delUsers(user)">Delete</button></td>
+	</tr>
+</table>

@@ -1,0 +1,13 @@
+<h1>Users</h1>
+<table ng-init="UL.getUsers()">
+	<tr>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Favorite Language</th>
+	</tr>
+	<tr ng-repeat='user in UL.users'>
+		<td>{{user.first}}</td>
+		<td>{{user.last}}</td>
+		<td>{{user.favLang}}</td>
+	</tr>
+</table>

@@ -8,7 +8,8 @@
 			//factories
 			app.factory('ProductFactory', function(){
 				var factory = {};
-				factory.products = [];
+				factory.products = [
+					{product: 'mac', price: 2000, qty: 0}];
 				factory.getProducts = function(callback){
 					callback(this.products);
 				};
@@ -57,12 +58,12 @@
 				$scope.buyProduct = function(product){
 					$scope.error = "";
 					if(product.qty <= 0){
-						$scope.error = '${product.name} is out of stock!'
+						$scope.error = 'Item is out of stock!'
 					} else {
 						ProductFactory.buyProduct(product, $scope.getProducts)
-					}
-				}
-			})
+					};
+				};
+			});
 
 		</script>
 	</head>
@@ -87,6 +88,7 @@
 	</div>
 	<h1>Order Controller</h1>
 	<div ng-controller='OrderController'>
+		<p>{{error}}</p>
 		<table ng-init='getProducts()'>
 			<tr ng-repeat='product in products'>
 				<td>{{product.product}}:</td>
