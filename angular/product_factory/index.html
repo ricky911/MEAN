@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app='app'>
+	<head>
+		<title>Products with a Factory</title>
+		<script src='bower_components/angular/angular.js'></script>
+		<script type="text/javascript">
+			var app = angular.module('app', []);
+
+			//factories
+			app.factory('productFactory', function(){
+				var factory = {};
+				factory.products = [
+					{name: 'keyboard', price: 149.99}
+				];
+				factory.getProducts = function(callback){
+					callback(this.products);
+				};
+				factory.createProduct = function(newProduct, callback){
+					factory.products.push(newProduct);
+					callback();
+				};
+				factory.delProduct = function(product, callback){
+					var x = this.products.indexOf(product);
+					this.products.splice(x, 1)
+					callback();
+				}
+				return factory;
+			});
+
+			//controllers
+			app.controller('productController', function($scope, productFactory){
+				$scope.getProducts = function(){
+					productFactory.getProducts(function(products){
+						$scope.products = products;
+					});
+				};
+				$scope.createProduct = function(newProduct){
+					productFactory.createProduct(newProduct, function(){
+						$scope.getProducts();
+						$scope.newProduct = {};
+					});
+				};
+				$scope.delProduct = function(product){
+					productFactory.delProduct(product, function(){
+						$scope.getProducts();
+					})
+				}
+			});
+		</script>
+	</head>
+	<body>
+	<h1>Product Controller</h1>
+		<div ng-controller='productController'>
+			<form ng-submit='createProduct(newProduct)'>
+				<p>Product: <input type="text" ng-model="newProduct.name"></p>
+				<p>Price: <input type="text" ng-model="newProduct.price"></p>
+				<input type="submit" value="Create">
+			</form>
+			<ul ng-init='getProducts()'>
+				<li ng-repeat='product in products'>{{product.name}}: {{product.price | currency: '$'}}
+				<button type="button" ng-click='delProduct(product)'>Delete</button></li>
+			</ul>
+		</div>
+	</body>
+</html>
