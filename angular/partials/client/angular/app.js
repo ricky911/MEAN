@@ -38,8 +38,9 @@ app.factory('UserFactory', function(){
 });
 
 //controllers
-app.controller('CustomizeUsersController', function(UserFactory){
+app.controller('CustomizeUsersController', function(UserFactory, $location){
 	var self = this;
+	console.log($location)
 	self.getUsers = function(){
 		UserFactory.getUsers(function(users){
 			self.users = users
@@ -49,6 +50,7 @@ app.controller('CustomizeUsersController', function(UserFactory){
 		UserFactory.addUsers(newUser, function(){
 			self.getUsers();
 			self.newUser = {};
+			$location.url('/userList')
 		});
 	};
 	self.delUsers = function(user){

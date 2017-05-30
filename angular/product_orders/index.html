@@ -18,6 +18,7 @@
 					factory.products.push(newProduct);
 					callback();
 				};
+				
 				factory.delProducts = function(product, callback){
 					var x = this.products.indexOf(product);
 					this.products.splice(x, 1);
