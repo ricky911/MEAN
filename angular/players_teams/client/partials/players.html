@@ -1,0 +1,15 @@
+<h1>Players</h1>
+<form ng-submit="PC.addPlayers(PC.newPlayer)">
+	<p>Name: <input type="text" ng-model="PC.newPlayer.name" /></p>
+	<p><input type="submit" value="Add Player" /></p>
+</form>
+<table ng-init="PC.getPlayers()">
+	<tr>
+		<th>Name</th>
+		<th>Action</th>
+	</tr>
+	<tr ng-repeat='player in PC.players'>
+		<th>{{player.name}}</th>
+		<th><button ng-click='PC.delPlayers(player)'>Delete Player</button></th>
+	</tr>
+</table>

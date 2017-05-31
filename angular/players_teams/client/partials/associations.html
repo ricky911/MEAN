@@ -1,0 +1,25 @@
+<h1>Associations</h1>
+<div ng-init='AC.getPlayers(); AC.getTeams()'>
+	<form ng-submit='AC.createAssociation(AC.newAssociation)'>
+		<select ng-model='AC.newAssociation.player' id='players'>
+			<option ng-repeat='player in AC.players' ng-value='{{player}}'>{{player.name}}</option>
+		</select>
+		| 
+		<select ng-model='AC.newAssociation.team' id='teams'>
+			<option ng-repeat='team in AC.teams' ng-value='{{team}}'>{{team.name}}</option>
+		</select>
+		<input type="submit" value="Assign to Team">
+	</form>
+	<table>
+		<tr>
+			<th>Name</th>
+			<th>Team</th>
+			<th>Action</th>
+		</tr>
+		<tr ng-repeat='player in AC.players' ng-if='player.team'>
+			<td>{{player.name}}</td>
+			<td>{{player.team.name}}</td>
+			<td><button ng-click="AC.delAssociation(player)">Delete Association</button></td>
+		</tr>
+	</table>
+</div>
