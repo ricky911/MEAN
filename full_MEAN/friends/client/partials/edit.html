@@ -1,0 +1,9 @@
+<h1>Edit Friend</h1>
+<div ng-init='FC.show()'>
+	<form ng-submit='FC.update(FC.friend)'>
+		First Name: <input type="text" ng-model="FC.friend.first_name" />
+		Last Name: <input type="text" ng-model="FC.friend.last_name" />
+		Birthday: <input type="date" ng-model="FC.friend.birthday" />
+		<input type="submit" value="Update">
+	</form>
+</div>

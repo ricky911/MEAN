@@ -1,0 +1,6 @@
+<h1>Friend</h1>
+<form ng-init='FC.show()'>
+	<h2> Name: {{FC.friend.first_name}} {{FC.friend.last_name}}</h2>
+	<h2> Birthday: {{FC.friend.birthday | date: yyyy-MM-d}}</h2>
+	<h2> Created At: {{FC.friend.createdAt | date: yyyy-MM-d}}</h2>
+</form>
