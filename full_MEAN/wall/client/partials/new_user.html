@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New User</title>
+</head>
+<body>
+<h1>Create User</h1>
+<form ng-submit='UC.create(UC.newUser)'>
+	<p>Name: <input type="text" ng-model="UC.newUser.name" /></p>
+	<p>Email: <input type="text" ng-model="UC.newUser.email" /></p>
+	<p>Password: <input type="password" ng-model="UC.newUser.password" /></p>
+	<p>Birthday: <input type="date" ng-model="UC.newUser.birthday" /></p>
+	<p><input type="submit" value="Create User" /></p>
+</form>
+<form ng-submit=UC.login()>
+	<p>Email: <input type="text" ng-model="s">
+</form>
+</body>
+</html>

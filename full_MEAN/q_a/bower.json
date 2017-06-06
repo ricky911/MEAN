@@ -1,0 +1,22 @@
+{
+  "name": "wall2",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "Ricky Aguayo <raguayo911@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/ricky911/MEAN",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-route": "^1.6.4",
+    "angular-cookies": "^1.6.4"
+  }
+}
