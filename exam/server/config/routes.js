@@ -1,4 +1,5 @@
 var User = require('../controllers/users.js')
+var Answer = require('../controllers/answers.js')
 var Question = require('../controllers/questions.js')
 
 module.exports = function(app){
@@ -7,13 +8,12 @@ module.exports = function(app){
 	app.post('/users', User.create)
 	app.get('/users/:id', User.show)
 	app.post('/login', User.login)
+	//answer routes
+	app.get('/answers', Answer.index)
+	app.post('/answers', Answer.create)
+	app.post('/answers/:id/like', Answer.addLikes)
 	//question routes
 	app.get('/questions', Question.index)
 	app.post('/questions', Question.create)
 	app.get('/questions/:id', Question.show)
-	app.delete('/questions/:id', Question.destroy)
-	app.put('/questions/:id/votes/option1', Question.updateOptionOne)
-	app.put('/questions/:id/votes/option2', Question.updateOptionTwo)
-	app.put('/questions/:id/votes/option3', Question.updateOptionThree)
-	app.put('/questions/:id/votes/option4', Question.updateOptionFour)
 }

@@ -1,5 +1,4 @@
-app.controller('UsersController', function(UserFactory, BListFactory, $location, $routeParams, $cookies){
-	
+app.controller('UserController', function(UserFactory, BListFactory, $location, $routeParams, $cookies){
 	console.log('reached UC')
 	var self = this
 	self.current_user = {}
@@ -9,17 +8,18 @@ app.controller('UsersController', function(UserFactory, BListFactory, $location,
 
 	self.session = function(){
 		UserFactory.session(function(user){
+			console.log(user)
 			if(user){
+				console.log(user)
 				self.current_user = user
-			}
-			else {
+			} else {
 				$location.url('/')
 			}
 		})
 	},
 
 	self.index = function(){
-		UserFactory.index(function(response){
+		UserFactory.index(function(res){
 			self.users = res.data
 		})
 	},
@@ -32,8 +32,7 @@ app.controller('UsersController', function(UserFactory, BListFactory, $location,
 					var error = res.data.errors[key]
 					self.errors.push(error.message)
 				}	
-			}
-			else {
+			} else {
 				var user_id = res.data._id
 				$cookies.put('user_id', user_id)
 				$location.url('/dashboard')
@@ -46,26 +45,25 @@ app.controller('UsersController', function(UserFactory, BListFactory, $location,
 		UserFactory.session(function(user){
 			self.newItem.user = user._id
 			BListFactory.create(self.newItem, function(res){
-					if(res.data.errors){
-						for(key in res.data.errors){
-							var error = res.data.errors[key]
-							self.newItem_errors.push(error.message)
-						}
+				if(res.data.errors){
+					for(key in res.data.errors){
+						var error = res.data.errors[key]
+						self.newItem_errors.push(error.message)
 					}
-					else {
-						self.session()
-						self.newItem = {}
-					}
+				} else {
+					self.session()
+					self.newItem = {}
+				}
 			})
 		})
 	},
 
 	self.show = function(){
-  		UserFactory.show($routeParams.id, function(res){
-  			self.user = res.data
-  			return self.user
-  		})
-  	},
+		UserFactory.show($routeParams.id, function(res){
+			self.user = res.data
+			return self.user
+		})
+	},
 
 	self.updateCheck = function(bList_id){
 		UserFactory.updateCheck(bList_id, self.session)
@@ -74,5 +72,5 @@ app.controller('UsersController', function(UserFactory, BListFactory, $location,
 	self.logout = function(){
 		$cookies.remove('user_id')
 		$location.url('/')
-	},
+	}
 })

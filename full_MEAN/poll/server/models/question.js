@@ -7,24 +7,56 @@ var QuestionSchema = new mongoose.Schema({
 		minlength: [8, 'Question must be at least 8 characters']
 	},
 	optionOne: {
-		required: [true, 'Option One cannot be blank'],
-		type: Number,
-		minlength: [3, 'Options must be at least 3 characters']
+		content: {
+			type: String,
+			required: [true, 'Content cannot be blank'],
+			minlength: [3, 'Content must be at least 3 characters']
+		},
+		votes: {
+			count: {
+				type: Number,
+				default: 0
+			}
+		}
 	},
 	optionTwo: {
-		required: [true, 'Option Two cannot be blank'],
-		type: Number,
-		minlength: [3, 'Options must be at least 3 characters']
+		content: {
+			type: String,
+			required: [true, 'Content cannot be blank'],
+			minlength: [3, 'Content must be at least 3 characters']
+		},
+		votes: {
+			count: {
+				type: Number,
+				default: 0
+			}
+		}
 	},
 	optionThree: {
-		required: [true, 'Option Three cannot be blank'],
-		type: Number,
-		minlength: [3, 'Options must be at least 3 characters']
+		content: {
+			type: String,
+			required: [true, 'Content cannot be blank'],
+			minlength: [3, 'Content must be at least 3 characters']
+		},
+		votes: {
+			count: {
+				type: Number,
+				default: 0
+			}
+		}
 	},
 	optionFour: {
-		required: [true, 'Option Four cannot be blank'],
-		type: Number,
-		minlength: [3, 'Options must be at least 3 characters']
+		content: {
+			type: String,
+			required: [true, 'Content cannot be blank'],
+			minlength: [3, 'Content must be at least 3 characters']
+		},
+		votes: {
+			count: {
+				type: Number,
+				default: 0
+			}
+		}
 	},
 	user: {
 		type: mongoose.Schema.Types.ObjectId,

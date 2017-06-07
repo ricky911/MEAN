@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html ng-app='app'>
 	<head>
-		<title>Polls</title>
+		<title>Q&A</title>
 		<script src='angular/angular.js'></script>
 		<script src='angular-route/angular-route.js'></script>
 		<script src='angular-cookies/angular-cookies.js'></script>
 		<script src='angular/config.js'></script>
 		<script src='angular/controllers/UserController.js'></script>
+		<script src='angular/controllers/QuestionController.js'></script>
+		<script src='angular/controllers/AnswerController.js'></script>
 		<script src='angular/factories/UserFactory.js'></script>
+		<script src='angular/factories/QuestionFactory.js'></script>
+		<script src='angular/factories/AnswerFactory.js'></script>
 	</head>
 	<body>
-	<div ng-view></div>
+	<div class="container">
+		<a href="#!/">Home</a>
+		<div ng-view></div>
+	</div>
 	</body>
 </html>

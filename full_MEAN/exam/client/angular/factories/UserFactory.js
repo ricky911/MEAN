@@ -1,4 +1,5 @@
 app.factory('UserFactory', function($http, $cookies){
+	console.log('reached UF')
 	var factory = {};
 
 	factory.index = function(callback){
@@ -19,6 +20,7 @@ app.factory('UserFactory', function($http, $cookies){
 			if(res.data.errors){
 				return callback(false)
 			}
+			console.log(res.data)
 			return callback(res.data);
 		})
 	}

@@ -1,0 +1,37 @@
+<div ng-controller="QuestionController as QC">
+
+  <div ng-init="UC.check()">
+    <a href="#" ng-click="UC.logout()">Logout</a>
+  </div>
+
+  <ul ng-init="QC.index(); AC.index()">
+    <li ng-repeat='error in QC.errors'>{{error}}</li>
+  </ul>
+
+  <h1>Hi {{ UC.user.name }}</h1>
+
+  <a href="#!/new_question">Add a Question</a>
+  <br>
+  <br>
+
+  <div>
+    <label>Filter: <input type="text" ng-model="filterName.question"></label>
+  </div>
+  <br>
+
+  <table>
+    <thead>
+      <th>Question</th>
+      <th>Answers</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="question in QC.questions | filter:filterName:strict">
+        <td>{{question.question}}</td>
+        <td>{{question.answers.length}}</td>
+        <td><a href="#!/question/{{question._id}}">Show</a> <a href="#!/question/{{question._id}}/new_answer" >Answer</a></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>

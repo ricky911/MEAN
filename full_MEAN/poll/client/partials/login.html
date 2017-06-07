@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Login</title>
+	</head>
+	<body>
+	<h1>Register</h1>
+	<form ng-submit='UC.create(UC.newUser)'>
+		<p>Name: <input type="text" ng-model="UC.newUser" /></p>
+		<p>Password: <input type="password" ng-model="UC.newUser" /></p>
+		<input type="submit" value="Register">
+	</form>
+
+	<p ng-repeat='error in UC.reg_err'>{{error}}</p>
+
+	<h1>Login</h1>
+	<form ng-submit='UC.login(user)'>
+		<p>Name: <input type="text" ng-model="UC.user.name" /></p>
+		<p>Password: <input type="password" ng-model="UC.user.password" /></p>
+		<input type="submit" value="Login">
+	</form>
+
+	<p ng-repeat='error in UC.login_err'>{{error}}</p>
+	</body>
+</html>

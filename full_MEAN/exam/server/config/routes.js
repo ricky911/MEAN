@@ -1,11 +1,12 @@
 var User = require('../controllers/users.js');
-var BL = require('../controllers/bucketlists.js')
+var Blist = require('../controllers/bucketlists.js')
 
 module.exports = function(app){
+	console.log('reached routes')
 	//user routes
 	app.get('/users', User.index);
 	app.post('/users', User.create);
-	app.get('/users:id', User.show);
+	app.get('/users/:id', User.show);
 	// app.post('/login', User.login);
 	//bucketlist routes
 	app.get('/bucketlist', Blist.index);

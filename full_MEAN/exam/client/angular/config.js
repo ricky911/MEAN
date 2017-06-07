@@ -4,15 +4,15 @@ app.config(function($routeProvider){
 	$routeProvider
 	.when('/', {
 		templateUrl: 'partials/login.html',
-		controller: 'UsersController as UC'
+		controller: 'UserController as UC'
 	})
 	.when('/dashboard', {
 		templateUrl: 'partials/dashboard.html',
-		controller: 'UsersController as UC'
+		controller: 'UserController as UC'
 	})
 	.when('/users/:id', {
 		templateUrl: 'partials/user_blist.html',
-		controller: 'UsersController as UC'
+		controller: 'UserController as UC'
 	})
 	.otherwise({redirectTo: '/'})
 })
